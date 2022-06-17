@@ -100,5 +100,26 @@
                 </form>
             </div>
         </nav>
+
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            let lastScroll = 0;
+
+            $(window).scroll(function () {
+                const scrollNow = $(window).scrollTop();
+                console.log("scrollNow", scrollNow);
+
+                // 判斷
+                if (scrollNow > lastScroll) {
+                    console.log("往下");
+                    $(".navbar").addClass("hideNav");
+                } else {
+                    console.log("往上");
+                    $(".navbar").removeClass("hideNav");
+                }
+
+                lastScroll = scrollNow;
+            });
+        </script>
     </body>
 </html>
