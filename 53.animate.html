@@ -18,18 +18,21 @@
         </style>
     </head>
     <body>
-        <button id="bounce">bounce</button>
+        <button id="bounce" data-animation="bounce">bounce</button>
+        <button id="flash" data-animation="flash">flash</button>
         <div class="box animate__animated"></div>
 
         <script src="./js/jquery-3.6.0.min.js"></script>
         <script>
-            $("#bounce").click(function () {
+            $("button").click(function () {
+                const animationName = $(this).data("animation");
+                console.log("animationName", animationName);
                 $(".box")
-                    .addClass("animate__bounce")
+                    .addClass(`animate__${animationName}`)
                     .one(
                         "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
                         function () {
-                            $(this).removeClass("animate__bounce");
+                            $(this).removeClass(`animate__${animationName}`);
                         }
                     );
             });
