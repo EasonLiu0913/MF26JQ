@@ -14,13 +14,14 @@
         </style>
     </head>
     <body>
-        <button>Click</button>
+        <button id="start">start</button>
+        <button id="stop">stop</button>
         <div class="box"></div>
 
         <script src="./js/jquery-3.6.0.min.js"></script>
         <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
         <script>
-            $("button").click(function () {
+            $("#start").click(function () {
                 $(".box")
                     .animate(
                         {
@@ -37,6 +38,10 @@
                         },
                         2000
                     );
+            });
+
+            $("#stop").click(function () {
+                $(".box").stop(true, false);
             });
         </script>
     </body>
